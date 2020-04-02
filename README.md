@@ -58,9 +58,9 @@ api_conf = Configuration()
 api_conf.host = "127.0.0.1:8080" # str | The proxy host address.
 api_client = akeyless_proxy_api.ApiClient(api_conf)
 api_instance =  akeyless_proxy_api.DefaultApi(api_client)
-access_id = 'p-gezdsmmf0ijf' # str | Access ID
-access_type = 'api_key' # str | Access Type (api_key/okta_saml/ldap) (optional)
-access_key = 'xY57REzcMMcBGEs8cgMUpZidoohl15HFeAsQTce/gww=' # str | Access key (relevant only for access-type=api_key) (optional)
+access_id = 'access_id_example' # str | Access ID
+access_type = 'access_type_example' # str | Access Type (api_key/okta_saml/ldap) (optional)
+access_key = 'access_key_example' # str | Access key (relevant only for access-type=api_key) (optional)
 
 try:
     # Authenticate to the service and returns an access token
