@@ -50,7 +50,6 @@ from __future__ import print_function
 import akeyless_proxy_api
 from akeyless_proxy_api.rest import ApiException
 from akeyless_proxy_api.configuration import Configuration
-from akeyless_proxy_api.api_client import ApiClient
 from pprint import pprint
 
 # create an instance of the Proxy API class
@@ -90,7 +89,7 @@ try:
 
 
 except ApiException as e:
-    print("Exception when calling DefaultApi->auth: %s\n" % e)
+    print("Exception when calling proxy api: %s\n" % e)
 
 ```
 
@@ -100,50 +99,48 @@ All URIs are relative to *http://127.0.0.1:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**assoc_role_am**](docs/DefaultApi.md#assoc_role_am) | **POST** /assoc-role-am | Create an association between role and auth method
 *DefaultApi* | [**auth**](docs/DefaultApi.md#auth) | **POST** /auth | Authenticate to the service and returns a token to be used as a profile to execute the CLI without the need for re-authentication
-*DefaultApi* | [**configure**](docs/DefaultApi.md#configure) | **POST** /configure | Configure client profile.
+*DefaultApi* | [**create_secret**](docs/DefaultApi.md#create_secret) | **POST** /create-secret | Creates a new secret item
+*DefaultApi* | [**get_secret_value**](docs/DefaultApi.md#get_secret_value) | **POST** /get-secret-value | Get static secret value
+*DefaultApi* | [**update_secret_val**](docs/DefaultApi.md#update_secret_val) | **POST** /update-secret-val | Update static secret value
+*DefaultApi* | [**describe_item**](docs/DefaultApi.md#describe_item) | **POST** /describe-item | Returns the item details
+*DefaultApi* | [**list_items**](docs/DefaultApi.md#list_items) | **POST** /list-items | Returns a list of all accessible items
+*DefaultApi* | [**update_item**](docs/DefaultApi.md#update_item) | **POST** /update-item | Update item name and metadata
+*DefaultApi* | [**create_key**](docs/DefaultApi.md#create_key) | **POST** /create-key | Creates a new key
+*DefaultApi* | [**encrypt**](docs/DefaultApi.md#encrypt) | **POST** /encrypt | Encrypts plaintext into ciphertext by using an AES key
 *DefaultApi* | [**create_auth_method**](docs/DefaultApi.md#create_auth_method) | **POST** /create-auth-method | Create a new Auth Method in the account
 *DefaultApi* | [**create_auth_method_azure_ad**](docs/DefaultApi.md#create_auth_method_azure_ad) | **POST** /create-auth-method-azure-ad | Create a new Auth Method that will be able to authentication using Azure Active Directory credentials
 *DefaultApi* | [**create_auth_method_ldap**](docs/DefaultApi.md#create_auth_method_ldap) | **POST** /create-auth-method-ldap | Create a new Auth Method that will be able to authentication using LDAP
 *DefaultApi* | [**create_auth_method_oauth2**](docs/DefaultApi.md#create_auth_method_oauth2) | **POST** /create-auth-method-oauth2 | Create a new Auth Method that will be able to authentication using OpenId/OAuth2
 *DefaultApi* | [**create_auth_method_saml**](docs/DefaultApi.md#create_auth_method_saml) | **POST** /create-auth-method-saml | Create a new Auth Method that will be able to authentication using SAML
+*DefaultApi* | [**assoc_role_am**](docs/DefaultApi.md#assoc_role_am) | **POST** /assoc-role-am | Create an association between role and auth method
 *DefaultApi* | [**create_dynamic_secret**](docs/DefaultApi.md#create_dynamic_secret) | **POST** /create-dynamic-secret | Creates a new dynamic secret item
-*DefaultApi* | [**create_key**](docs/DefaultApi.md#create_key) | **POST** /create-key | Creates a new key
 *DefaultApi* | [**create_role**](docs/DefaultApi.md#create_role) | **POST** /create-role | Creates a new role
-*DefaultApi* | [**create_secret**](docs/DefaultApi.md#create_secret) | **POST** /create-secret | Creates a new secret item
 *DefaultApi* | [**create_ssh_cert_issuer**](docs/DefaultApi.md#create_ssh_cert_issuer) | **POST** /create-ssh-cert-issuer | Creates a new SSH certificate issuer
 *DefaultApi* | [**decrypt**](docs/DefaultApi.md#decrypt) | **POST** /decrypt | Decrypts ciphertext into plaintext by using an AES key
-*DefaultApi* | [**decrypt_file**](docs/DefaultApi.md#decrypt_file) | **POST** /decrypt-file | Decrypts a file by using an AES key
 *DefaultApi* | [**decrypt_pkcs1**](docs/DefaultApi.md#decrypt_pkcs1) | **POST** /decrypt-pkcs1 | Decrypts a plaintext using RSA and the padding scheme from PKCS#1 v1.5
 *DefaultApi* | [**delete_assoc**](docs/DefaultApi.md#delete_assoc) | **POST** /delete-assoc | Delete an association between role and auth method
 *DefaultApi* | [**delete_auth_method**](docs/DefaultApi.md#delete_auth_method) | **POST** /delete-auth-method | Delete the Auth Method
 *DefaultApi* | [**delete_item**](docs/DefaultApi.md#delete_item) | **POST** /delete-item | Delete an item
 *DefaultApi* | [**delete_role**](docs/DefaultApi.md#delete_role) | **POST** /delete-role | Delete a role
 *DefaultApi* | [**delete_role_rule**](docs/DefaultApi.md#delete_role_rule) | **POST** /delete-role-rule | Delete a rule from a role
-*DefaultApi* | [**describe_item**](docs/DefaultApi.md#describe_item) | **POST** /describe-item | Returns the item details
-*DefaultApi* | [**encrypt**](docs/DefaultApi.md#encrypt) | **POST** /encrypt | Encrypts plaintext into ciphertext by using an AES key
-*DefaultApi* | [**encrypt_file**](docs/DefaultApi.md#encrypt_file) | **POST** /encrypt-file | Encrypts a file by using an AES key
 *DefaultApi* | [**encrypt_pkcs1**](docs/DefaultApi.md#encrypt_pkcs1) | **POST** /encrypt-pkcs1 | Encrypts the given message with RSA and the padding scheme from PKCS#1 v1.5
 *DefaultApi* | [**get_auth_method**](docs/DefaultApi.md#get_auth_method) | **POST** /get-auth-method | Returns an information about the Auth Method
 *DefaultApi* | [**get_dynamic_secret_value**](docs/DefaultApi.md#get_dynamic_secret_value) | **POST** /get-dynamic-secret-value | Get dynamic secret value
 *DefaultApi* | [**get_role**](docs/DefaultApi.md#get_role) | **POST** /get-role | Get role details
 *DefaultApi* | [**get_rsa_public**](docs/DefaultApi.md#get_rsa_public) | **POST** /get-rsa-public | Obtain the public key from a specific RSA private key
-*DefaultApi* | [**get_secret_value**](docs/DefaultApi.md#get_secret_value) | **POST** /get-secret-value | Get static secret value
 *DefaultApi* | [**get_ssh_certificate**](docs/DefaultApi.md#get_ssh_certificate) | **POST** /get-ssh-certificate | Generates SSH certificate
-*DefaultApi* | [**help**](docs/DefaultApi.md#help) | **POST** /help | help text
 *DefaultApi* | [**list_auth_methods**](docs/DefaultApi.md#list_auth_methods) | **POST** /list-auth-methods | Returns a list of all the Auth Methods in the account
-*DefaultApi* | [**list_items**](docs/DefaultApi.md#list_items) | **POST** /list-items | Returns a list of all accessible items
 *DefaultApi* | [**list_roles**](docs/DefaultApi.md#list_roles) | **POST** /list-roles | Returns a list of all roles in the account
 *DefaultApi* | [**set_role_rule**](docs/DefaultApi.md#set_role_rule) | **POST** /set-role-rule | Set a rule to a role
 *DefaultApi* | [**sign_pkcs1**](docs/DefaultApi.md#sign_pkcs1) | **POST** /sign-pkcs1 | Calculates the signature of hashed using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5
-*DefaultApi* | [**unconfigure**](docs/DefaultApi.md#unconfigure) | **POST** /unconfigure | Remove Configuration of client profile.
-*DefaultApi* | [**update_item**](docs/DefaultApi.md#update_item) | **POST** /update-item | Update item name and metadata
 *DefaultApi* | [**update_role**](docs/DefaultApi.md#update_role) | **POST** /update-role | Update role details
-*DefaultApi* | [**update_secret_val**](docs/DefaultApi.md#update_secret_val) | **POST** /update-secret-val | Update static secret value
 *DefaultApi* | [**upload_pkcs12**](docs/DefaultApi.md#upload_pkcs12) | **POST** /upload-pkcs12 | Upload a PKCS#12 key and certificates
 *DefaultApi* | [**upload_rsa**](docs/DefaultApi.md#upload_rsa) | **POST** /upload-rsa | Upload RSA key
 *DefaultApi* | [**verify_pkcs1**](docs/DefaultApi.md#verify_pkcs1) | **POST** /verify-pkcs1 | Verifies an RSA PKCS#1 v1.5 signature
+*DefaultApi* | [**configure**](docs/DefaultApi.md#configure) | **POST** /configure | Configure client profile.
+*DefaultApi* | [**unconfigure**](docs/DefaultApi.md#unconfigure) | **POST** /unconfigure | Remove Configuration of client profile.
+*DefaultApi* | [**help**](docs/DefaultApi.md#help) | **POST** /help | help text
 
 
 ## Documentation For Models
