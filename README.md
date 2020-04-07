@@ -94,6 +94,10 @@ except ApiException as e:
 
 ```
 
+The following example show how to fetch multiple secrets values with async requests
+```
+```
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *http://127.0.0.1:8080*

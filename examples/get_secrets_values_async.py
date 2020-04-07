@@ -19,26 +19,15 @@ try:
     auth_response = api_instance.auth(access_id, access_type=access_type, access_key=access_key)
     token = auth_response.token
 
-    # Create new static secret
-    secret_name = 'name_example' # str | Secret name
-    secret_value = 'value_example' # str | The secret value
-    secret_metadata = 'metadata_example' # str | Metadata about the secret (optional)
-    create_response =  api_instance.create_secret(secret_name, secret_value, token, metadata=secret_metadata)
-    pprint(create_response.response)
+    secrets_names = ["mySecret1", "mySecret2", "mySecret3", "mySecret4", "mySecret5"]
 
-    # Get static secret value
-    secret_val_res = api_instance.get_secret_value(secret_name, token)
-    pprint(secret_val_res.response)
+    threads = []
+    for name in secrets_names:
+        threads.append(api_instance.get_secret_value(name, token, async_req=True))
 
-    # Get static secret details
-    desc_response = api_instance.describe_item(secret_name, token)
-    pprint(desc_response)
-
-    # Update static secret value
-    new_secret_value = "this is a new secret"
-    api_instance.update_secret_val(secret_name, new_secret_value, token)
-    secret_val_res = api_instance.get_secret_value(secret_name, token)
-    pprint(secret_val_res.response)
+    for t in threads:
+        secret_val_res = t.get()
+        pprint(secret_val_res.response)
 
 
 except ApiException as e:
